@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  classification: MyString
+  subject: MyString
+  link: MyString
+  country: MyString
+  dateofcreation: 2010-12-21
+  dateofrelease: 2010-12-21
+
+two:
+  classification: MyString
+  subject: MyString
+  link: MyString
+  country: MyString
+  dateofcreation: 2010-12-21
+  dateofrelease: 2010-12-21

@@ -1,0 +1,41 @@
+<%= form_for(@cable) do |f| %>
+  <% if @cable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cable.errors.count, "error") %> prohibited this cable from being saved:</h2>
+
+      <ul>
+      <% @cable.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :classification %><br />
+    <%= f.text_field :classification %>
+  </div>
+  <div class="field">
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br />
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :dateofcreation %><br />
+    <%= f.date_select :dateofcreation %>
+  </div>
+  <div class="field">
+    <%= f.label :dateofrelease %><br />
+    <%= f.date_select :dateofrelease %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

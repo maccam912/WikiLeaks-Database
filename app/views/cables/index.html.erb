@@ -1,0 +1,35 @@
+<h1>Listing <%= @records %> Cables</h1>
+
+<table>
+  <tr>
+    <th>Classification</th>
+    <th>Subject</th>
+    <th>Link</th>
+    <th>Origin</th>
+    <th>Date of Creation</th>
+    <th>Date of Release</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cables.each do |cable| %>
+  <tr>
+    <td><%= cable.classification %></td>
+    <td><%= cable.subject %></td>
+    <td><%= link_to cable.link, cable.link %></td>
+    <td><%= cable.country %></td>
+    <td><%= cable.dateofcreation %></td>
+    <td><%= cable.dateofrelease %></td>
+    <td><%= link_to 'Show', cable %></td>
+<!--
+    <td><%= link_to 'Edit', edit_cable_path(cable) %></td>
+    <td><%= link_to 'Destroy', cable, :confirm => 'Are you sure?', :method => :delete %></td>
+-->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<!--<%= link_to 'New Cable', new_cable_path %>-->
