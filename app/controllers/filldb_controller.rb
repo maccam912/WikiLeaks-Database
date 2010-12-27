@@ -7,13 +7,13 @@ class FilldbController < ApplicationController
     
     @today = Time.new
     
-    @day = @today - 1.days
+    @daysback = 6
+    
+    @day = @today - @daysback.days
     
     @mirror = "http://wikileaks.ch"
     
     @count = 0
-    
-    @daysback = 1
     
     @year = @day.year.to_s
     @dom = @day.day.to_s
