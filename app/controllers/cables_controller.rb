@@ -4,8 +4,8 @@ class CablesController < ApplicationController
   
   def index
     if params[:search]
-      @search_condition = "%" + params[:search] + "%"
-      @cables = Cable.find(:all, :order => "dateofrelease DESC", :conditions => ['subject LIKE ?', @search_condition])
+      @search_query = "%" + params[:search] + "%"
+      @cables = Cable.find(:all, :order => "dateofrelease DESC", :conditions => ['subject LIKE ?', @search_query])
     else
       @cables = Cable.find(:all, :order => "dateofrelease DESC")
     end
