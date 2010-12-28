@@ -3,7 +3,12 @@ class CablesController < ApplicationController
   # GET /cables.xml
   
   def index
-    @cables = Cable.all
+    if params[:search]
+      @search_condition = "%" + params[:search] + "%"
+      @cables = Cable.find(:all, :order => "dateofrelease DESC", :conditions => ['subject LIKE ?', @search_condition])
+    else
+      @cables = Cable.find(:all, :order => "dateofrelease DESC")
+    end
     @records = @cables.count
 
     respond_to do |format|

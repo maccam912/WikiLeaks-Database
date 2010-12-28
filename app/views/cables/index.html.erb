@@ -1,5 +1,9 @@
 <h1>Listing <%= @records %> Cables</h1>
-
+&nbsp;
+<% form_tag cables_path, :method => 'get' do %>
+	Search Subject<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Filter", :name => nil %>
+<% end %>
 <table>
   <tr>
     <th>Classification</th>
@@ -30,6 +34,3 @@
 <% end %>
 </table>
 
-<br />
-
-<!--<%= link_to 'New Cable', new_cable_path %>-->
