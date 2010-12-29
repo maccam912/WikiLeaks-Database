@@ -3,12 +3,16 @@ class CablesController < ApplicationController
   # GET /cables.xml
   
   def index
-    if params[:search]
+    if params[:search] && params[:origin] && params[:classification1] && params[:classification2]
+      @class1_query = "%" + params[:classification1] + "%"
+      @class2_query = "%" + params[:classification2] + "%"
       @search_query = "%" + params[:search] + "%"
-      @cables = Cable.find(:all, :order => "dateofrelease DESC", :conditions => ['subject LIKE ?', @search_query])
+      @origin_query = "%" + params[:origin] + "%"
+      @cables = Cable.find(:all, :order => "dateofrelease DESC", :conditions => ['(classification LIKE ? OR classification LIKE ?) AND subject LIKE ? AND country LIKE ?', @class1_query, @class2_query, @search_query, @origin_query])
     else
       @cables = Cable.find(:all, :order => "dateofrelease DESC")
     end
+    
     @records = @cables.count
 
     respond_to do |format|
