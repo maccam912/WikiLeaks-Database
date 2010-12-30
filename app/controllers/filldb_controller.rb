@@ -7,7 +7,7 @@ class FilldbController < ApplicationController
     
     @today = Time.new
     
-    @daysback = 1
+    @daysback = 30
     
     @day = @today - @daysback.days
     
