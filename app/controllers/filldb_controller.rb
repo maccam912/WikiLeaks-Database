@@ -40,8 +40,14 @@ class FilldbController < ApplicationController
 
       url = @mirror + @reldate
 
-      doc = Hpricot(open(url))
-      
+      begin
+        doc = Hpricot(open(url))
+      rescue
+        puts "Error on opening #{url}"
+        @daysback = @daysback + 1
+        next
+      end
+     
       @numofpage = (doc/"//div[@class='paginator']/a[4]").inner_html.to_i
       
       if @numofpage == 0
@@ -67,8 +73,6 @@ class FilldbController < ApplicationController
       if @numofpage == 66
         @numofpage = 6 
       end
-              
-      puts @numofpage.to_s + " pages"
       
       @page = 0
       
@@ -82,7 +86,7 @@ class FilldbController < ApplicationController
 
             begin
               doc = Hpricot(open(url))
-            rescue OpenURI::HTTPError
+            rescue
               puts "ERRORD on " + url
             end
             
