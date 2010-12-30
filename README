@@ -4,6 +4,8 @@ To run the application, make sure you have ruby 1.9.1 or better and the ruby gem
 
 run 'bundle install' to get the gems you will need.
 
+to get the database ready, do 'rake db:create' and 'rake db:migrate'.
+
 run 'rails server' and go to localhost:3000 in a browser. This is the list of cables. To fill the database, go to localhost:3000/filldb and give it several minutes to get all the cables. You should see the time and the number of cables added after filldb completes. It will not add cables more than once.
 
 localhost:3000 has a basic search ability, and you can search by origin, words in the subject, and filter by classification. If you only want one classification returned, set both to the same classification ('secret' or 'secret' to return only secret cables).

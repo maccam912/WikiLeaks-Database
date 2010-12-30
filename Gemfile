@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'json', '1.4.6'
 gem 'sequel', '3.17.0'
 gem 'hpricot', '0.8.3'
+
 gem 'rails', '3.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
