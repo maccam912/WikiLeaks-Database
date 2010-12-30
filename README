@@ -7,5 +7,3 @@ run 'bundle install' to get the gems you will need.
 run 'rails server' and go to localhost:3000 in a browser. This is the list of cables. To fill the database, go to localhost:3000/filldb and give it several minutes to get all the cables. You should see the time and the number of cables added after filldb completes. It will not add cables more than once.
 
 localhost:3000 has a basic search ability, and you can search by origin, words in the subject, and filter by classification. If you only want one classification returned, set both to the same classification ('secret' or 'secret' to return only secret cables).
-
-If filldb is not working and giving 404 errors, in the filldb controller is a variable @daysback, which is set to 1. Temporarily change it to 2 or how ever many days ago the last cable was released.
