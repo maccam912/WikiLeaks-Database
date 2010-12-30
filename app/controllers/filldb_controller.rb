@@ -84,7 +84,6 @@ class FilldbController < ApplicationController
               doc = Hpricot(open(url))
             rescue OpenURI::HTTPError
               puts "ERRORD on " + url
-              break
             end
             
             (doc/"//html/body/div/div[2]/table/tr").each do |entry|
@@ -96,8 +95,8 @@ class FilldbController < ApplicationController
               @classification = (entry/'td[5]/a').inner_html
               @origin = (entry/'td[6]/a').inner_html
   
-              if @subject.chomp.length > 2
-                if Cable.find(:all, :conditions => {:subject => @subject}).length > 0
+              if @link.chomp.length > 2
+                if Cable.find(:all, :conditions => {:link => @link}).length > 0
                 #nothing
               else
                 Cable.create(:classification => @classification, :subject => @subject, :link => @link, :country => @origin, :dateofcreation => @created, :dateofrelease => @released)
