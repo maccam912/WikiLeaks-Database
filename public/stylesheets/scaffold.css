@@ -1,14 +1,10 @@
-body { background-color: #82D9FF; color: #004562; padding: 15px;}
+body { background-color: #FFF; color: #222; padding: 15px;}
 
 body, p, ol, ul, td, th {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   12px;
   line-height: 15px;
   padding:     8px;
-}
-
-select, input {
-	background-color: #01B2FF;
 }
 
 pre {
@@ -19,7 +15,7 @@ pre {
 
 a { color: #000; }
 a:visited { color: #666; }
-a:hover { color: #004562; }
+a:hover { color: #000; }
 
 div.field, div.actions {
   margin-bottom: 10px;
