@@ -4,7 +4,7 @@ class CablesController < ApplicationController
   
   def index
     if params[:search] && params[:origin] && params[:classification1] && params[:classification2]
-      @cables = Cable.find(:all, :order => "dateofrelease DESC", :conditions => ['(classification LIKE ? OR classification LIKE ?) AND subject LIKE ? AND country LIKE ?', "%#{params[:classification1]}%", "%#{params[:classification2]}%", "%#{params[:search]}%", "%#{params[:origin]}%"])
+      @cables = Cable.find(:all, :order => "dateofrelease DESC", :conditions => ['(lower(classification) LIKE ? OR lower(classification) LIKE ?) AND lower(subject) LIKE ? AND lower(country) LIKE ?', "%#{params[:classification1].downcase}%", "%#{params[:classification2].downcase}%", "%#{params[:search].downcase}%", "%#{params[:origin].downcase}%"])
     else
       @cables = Cable.find(:all, :order => "dateofrelease DESC")
     end
