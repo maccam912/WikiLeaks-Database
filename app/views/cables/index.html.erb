@@ -2,8 +2,8 @@
 &nbsp;
 <%= form_tag cables_path, :method => 'get' do %>
 	Search Classification<%= select_tag :classification1, options_for_select(["", "Secret", "Confidential", "Unclassified"], :multiple => true, :size => 3) %> or <%= select_tag :classification2, options_for_select(["", "Secret", "Confidential", "Unclassified"], :multiple => true, :size => 3) %>&nbsp; (If only 1 option is wanted, select the same option for both)<br>
-	Search Subject<%= search_field_tag :search, params[:search] %><br>
-	Search Origin<%= search_field_tag :origin, params[:origin]%><br>
+	Search Subject<%= text_field_tag :search, params[:search] %><br>
+	Search Origin<%= text_field_tag :origin, params[:origin]%><br>
 	<%= submit_tag "Filter", :name => nil %>
 <% end %>
 <table>
