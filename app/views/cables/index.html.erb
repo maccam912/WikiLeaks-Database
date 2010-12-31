@@ -14,9 +14,6 @@
     <th>Origin</th>
     <th>Date of Creation</th>
     <th>Date of Release</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @cables.each do |cable| %>
@@ -27,11 +24,6 @@
     <td><%= cable.country %></td>
     <td><%= cable.dateofcreation %></td>
     <td><%= cable.dateofrelease %></td>
-    <td><%= link_to 'Show', cable %></td>
-<!--
-    <td><%= link_to 'Edit', edit_cable_path(cable) %></td>
-    <td><%= link_to 'Destroy', cable, :confirm => 'Are you sure?', :method => :delete %></td>
--->
   </tr>
 <% end %>
 </table>
