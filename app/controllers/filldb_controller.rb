@@ -11,7 +11,7 @@ class FilldbController < ApplicationController
     @daysback = 1
     @day = @today - @daysback.days
     
-    @mirror = "http://wikileaks.ch"
+    @mirror = "http://www.wikileaks.de"
     
     @count = 0
     
@@ -19,7 +19,7 @@ class FilldbController < ApplicationController
     @dom = @day.day.to_s
     @month = @day.month.to_s
 
-    while @day.year > 2010 || @day.month > 11 || @day.day > 28 do
+    while @daysback < 15 do
       
       @day = @today - @daysback.days
       
