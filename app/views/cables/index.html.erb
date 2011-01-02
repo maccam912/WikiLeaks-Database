@@ -15,12 +15,12 @@
     <th>Date of Creation</th>
     <th>Date of Release</th>
   </tr>
-
+<% @mirror = "http://www.wikileaks.de" %>
 <% @cables.each do |cable| %>
   <tr>
     <td><%= cable.classification %></td>
     <td><%= cable.subject %></td>
-    <td><%= link_to cable.link, cable.link %></td>
+    <td><%= link_to @mirror + cable.link, @mirror + cable.link %></td>
     <td><%= cable.country %></td>
     <td><%= cable.dateofcreation %></td>
     <td><%= cable.dateofrelease %></td>

@@ -92,7 +92,7 @@ class FilldbController < ApplicationController
             
             (doc/"//html/body/div/div[2]/table/tr").each do |entry|
               @refid = (entry/'td[1]/a').inner_html
-              @link = @mirror + (entry/'td[1]/a').to_s.split("\"")[1].to_s
+              @link = (entry/'td[1]/a').to_s.split("\"")[1].to_s
               @subject = (entry/'td[2]').inner_html
               @created = (entry/'td[3]/a').inner_html
               @released = (entry/'td[4]/a').inner_html
