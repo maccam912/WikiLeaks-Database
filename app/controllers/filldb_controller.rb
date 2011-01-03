@@ -19,7 +19,7 @@ class FilldbController < ApplicationController
     @dom = @day.day.to_s
     @month = @day.month.to_s
 
-    while @year.to_i > 2010 || @dom.to_i > 28 || @month.to_i > 11 do
+    while @count < 15 do
       
       @day = @today - @daysback.days
       
