@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20101222054630) do
 
   create_table "cables", :force => true do |t|
     t.string   "classification"
+    t.string   "refid"
     t.string   "subject",        :limit => 2048
     t.string   "link"
     t.string   "country"

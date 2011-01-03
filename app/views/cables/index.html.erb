@@ -9,18 +9,22 @@
 <table>
   <tr>
     <th>Classification</th>
+	<th>Reference ID</th>
     <th>Subject</th>
     <th>Link</th>
     <th>Origin</th>
     <th>Date of Creation</th>
     <th>Date of Release</th>
   </tr>
-<% @mirror = "http://www.wikileaks.de" %>
+<% @mirror = "http://wikileaks.ch" %>
 <% @cables.each do |cable| %>
   <tr>
     <td><%= cable.classification %></td>
+	<td><%= cable.refid %></td>
     <td><%= cable.subject %></td>
-    <td><%= link_to @mirror + cable.link, @mirror + cable.link %></td>
+	<% @url = (@mirror + cable.link).to_s %>
+	<% @url.sub!(/\.\./, "") %>
+    <td><%= link_to @url, @url %></td>
     <td><%= cable.country %></td>
     <td><%= cable.dateofcreation %></td>
     <td><%= cable.dateofrelease %></td>
