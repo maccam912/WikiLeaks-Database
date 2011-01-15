@@ -74,6 +74,18 @@ class FilldbController < ApplicationController
         @numofpage = 6 
       end
       
+      if @numofpage == 77
+        @numofpage = 7
+      end
+      
+      if @numofpage == 88
+        @numofpage = 8
+      end
+      
+      if @numofpage == 99
+        @numofpage = 9
+      end
+      
       @page = 0
       
         while @numofpage > @page
