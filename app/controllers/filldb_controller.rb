@@ -11,7 +11,7 @@ class FilldbController < ApplicationController
     @daysback = 1
     @day = @today - @daysback.days
     
-    @mirror = "http://www.wikileaks.de"
+    @mirror = "http://wikileaks.ch"
     
     @count = 0
     
