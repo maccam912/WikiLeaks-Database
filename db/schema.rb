@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101222054630) do
+ActiveRecord::Schema.define(:version => 20110201171633) do
 
   create_table "cables", :force => true do |t|
     t.string   "classification"
     t.string   "refid"
-    t.string   "subject",        :limit => 2048
+    t.string   "subject",        :limit => 65536
     t.string   "link"
     t.string   "country"
     t.date     "dateofcreation"

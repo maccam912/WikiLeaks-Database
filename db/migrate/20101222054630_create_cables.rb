@@ -3,7 +3,7 @@ class CreateCables < ActiveRecord::Migration
     create_table :cables do |t|
       t.string :classification
       t.string :refid
-      t.string :subject, :limit => 2048
+      t.string :subject, :limit => 65536
       t.string :link
       t.string :country
       t.date :dateofcreation
