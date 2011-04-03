@@ -1,12 +1,10 @@
 class FilldbController < ApplicationController
   def index
     require 'rubygems'
-    require 'hpricot'
     require 'open-uri'
     require 'date'
     
     @today = Time.new
-    
     
     @daysback = 0
     @day = @today - @daysback.days
@@ -19,7 +17,10 @@ class FilldbController < ApplicationController
     @dom = @day.day.to_s
     @month = @day.month.to_s
 
-    while @daysback < 15 do
+    #while @daysback < 15 do
+    while @year.to_i > 2010 || @month.to_i > 11 || @dom.to_i > 27 do 
+      
+      puts @daysback
       
       @day = @today - @daysback.days
       
@@ -41,7 +42,7 @@ class FilldbController < ApplicationController
       url = @mirror + @reldate
 
       begin
-        doc = Hpricot(open(url))
+        doc = Nokogiri::HTML(open(url))
       rescue
         puts "Error on opening #{url}"
         @daysback = @daysback + 1
@@ -49,41 +50,17 @@ class FilldbController < ApplicationController
       end
      
       @numofpage = (doc/"//div[@class='paginator']/a[4]").inner_html.to_i
-      
+
       if @numofpage == 0
         @numofpage = 1
-      end
-      
-      if @numofpage == 22
-        @numofpage = 2
-      end
-      
-      if @numofpage == 33
-        @numofpage = 3
-      end
-      
-      if @numofpage == 44
-        @numofpage = 4
-      end
-      
-      if @numofpage == 55
-        @numofpage = 5
-      end
-      
-      if @numofpage == 66
-        @numofpage = 6 
-      end
-      
-      if @numofpage == 77
-        @numofpage = 7
-      end
-      
-      if @numofpage == 88
-        @numofpage = 8
-      end
-      
-      if @numofpage == 99
-        @numofpage = 9
+      elsif @numofpage.to_s.length == 2
+        @numofpage = @numofpage / 11
+      elsif @numofpage.to_s.length == 4
+        @numofpage = @numofpage / 101
+      elsif @numofpage.to_s.length == 6
+        @numofpage = @numofpage /1001
+      else
+        puts "Error finding number of pages"
       end
       
       @page = 0
@@ -97,7 +74,7 @@ class FilldbController < ApplicationController
             puts url
 
             begin
-              doc = Hpricot(open(url))
+              doc = Nokogiri::HTML(open(url))
             rescue
               puts "ERRORD on " + url
             end
