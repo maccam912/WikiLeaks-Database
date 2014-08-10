@@ -1,0 +1,13 @@
+applications:
+- name: wldb
+  framework:
+    name: rails3
+  instances: 1
+  mem: 128
+  runtime: ruby19
+  services:
+  ${name}-db:
+    type: mysql
+  stackato:
+    min_version:
+      client: 1.4.3
